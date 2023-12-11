@@ -11,7 +11,7 @@ GRACZE_MAX = models.IntegerChoices('Maksymalna liczba graczy',
                                    '1 2 3 4 5 6 7 8 9 10 11 12 13 14 15')
 
 OCENA = models.IntegerChoices('Ocena',
-                              '0 1 2 3 4 5')
+                              '1 2 3 4 5')
 
 
 class Gatunek(models.Model):

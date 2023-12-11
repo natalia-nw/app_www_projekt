@@ -85,11 +85,11 @@ class WypozyczenieSerializer(serializers.ModelSerializer):
 class KomentarzSerializer(serializers.ModelSerializer):
     class Meta:
         model = Komentarz
-        fields = ['id', 'wypozyczajcy', 'gra', 'tresc', 'ocena']
+        fields = ['id', 'wypozyczajacy', 'gra', 'tresc', 'ocena']
         read_only_fields = ['id']
 
         def update(self, instance, validated_data):
-            instance.wypozyczajcy = validated_data.get('wypozyczajacy', instance.wypozyczajacy)
+            instance.wypozyczajacy = validated_data.get('wypozyczajacy', instance.wypozyczajacy)
             instance.gra = validated_data.get('gra', instance.gra)
             instance.tresc = validated_data.get('tresc', instance.tresc)
             instance.ocena = validated_data.get('ocena', instance.ocena)
