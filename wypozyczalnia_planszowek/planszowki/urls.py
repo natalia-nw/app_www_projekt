@@ -1,5 +1,8 @@
 from django.urls import path
 from . import views
+from django.contrib import admin
+from rest_framework.authtoken.views import obtain_auth_token
+
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -22,4 +25,6 @@ urlpatterns = [
     path('komentarze/ocena/<int:pk>/', views.komentarze_ocena),
     path('komentarze_add/', views.komentarz_add),
     path('komentarze/<int:pk>/', views.komentarz_detail),
+    path('api-token-auth/', obtain_auth_token),
+    path('rejestracja/', views.UserRegistrationView.as_view()),
 ]

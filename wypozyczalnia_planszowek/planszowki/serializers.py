@@ -1,6 +1,6 @@
 import datetime
 from rest_framework import serializers
-from .models import Gatunek, Gra, Wypozyczenie, Wypozyczajacy, Komentarz
+from .models import Gatunek, Gra, Wypozyczenie, Wypozyczajacy, Komentarz, Account
 
 
 class GatunekSerializer(serializers.ModelSerializer):
@@ -95,3 +95,12 @@ class KomentarzSerializer(serializers.ModelSerializer):
             instance.ocena = validated_data.get('ocena', instance.ocena)
             instance.save()
             return instance
+
+
+class AccountSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Account
+        fields = '__all__'
+        read_only_fields = [
+            'id',
+        ]

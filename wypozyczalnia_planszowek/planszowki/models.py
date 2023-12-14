@@ -1,8 +1,11 @@
 import datetime
+
 from django.db import models
+from django.contrib.auth.models import User
+
 
 WYD = models.IntegerChoices('Wydawnictwa',
-                            'PortalGames Rebel Galakta LuckyDuckGames Muduko NaszaKsięgarnia Phalanx G3 Trefl')
+                            'PortalGames Rebel Galakta LuckyDuckGames Muduko NaszaKsięgarnia Phalanx G3 Trefl Inne')
 
 GRACZE_MIN = models.IntegerChoices('Minimalna liczba graczy',
                                    '1 2 3 4 5 6 7')
@@ -75,3 +78,7 @@ class Komentarz(models.Model):
 
     def __str__(self):
         return f"{self.tresc}"
+
+
+class Account(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
